@@ -5,17 +5,29 @@
 #include "ft_printf/ft_printf.h"
 #include <mlx.h>
 #include <math.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-// win_params---------------------.
+// win-params------------------------------------------
 #define WIDTH 1920
 #define HIEGHT 1080
+// colors-defined here------------------------------------------
+#define INDIANRED 0xCD5C5C
+#define RED 0xFF0000
+#define WHITE 0xFFFFFF
+#define GRAY 0x808080
+#define ALICEBLUE 0x00F0F8FF
+#define FIREBRICK 0XB22222
+#define HOTPINCK 0XFF69B4
+
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}		t_data;
+
 typedef struct {
 	// void	*img;
 	// char	*addr;
@@ -44,13 +56,19 @@ typedef struct {
 	float z;
 	double c_r;
 	double c_i;
+	double zoom;
+	double moveX;
+	double moveY;
 } t_fractol;
 // functions-----------------------.
+void	ft_putstr_fd(char *s);
+void	ft_error(int ac, char **av);
 void   ft_my_put_pixel(t_data *data, int x, int y, int color);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
-size_t  ft_strlen(char  *str);
+int	ft_strcmp(const char *s1, const char *s2);
 int ft_map(t_fractol *data);
-void    ft_mandelbrote(t_fractol *data);
+void   ft_mandelbrot(void);
+void  ft_calculate(t_fractol *data);
+void    ft_julia(t_fractol *data);
 void    ft_draw(t_fractol *data);
 
 #endif

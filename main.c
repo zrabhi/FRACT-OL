@@ -1,16 +1,15 @@
- #include "ft_printf/ft_printf.h"
+//  #include "ft_putstr_fd/ft_putstr_fd.h"
  #include "fractol.h"
 
 int main(int ac, char **av)
  {
+     t_fractol data;
      if(ac == 2)
      {
-        if(ft_strncmp("julia", av[1], ft_strlen("julia")))
-           ft_printf("Julia");
-        if(ft_strncmp("mandelbort", av[1], ft_strlen("mandelbort")))
-            ft_printf("Mandelbrote");
-        else 
-            ft_printf("Invalide parameters \n Try again");
+       ft_error(ac, av);
+        // else 
+        //     ft_putstr_fd("Invalide parameters \n Try again");
      }
-     ft_printf("INVALIDE PARAMS\n");
+    else
+        ft_putstr_fd("Invalid parametrs , it s seems that you need help, try --help ");
  }
