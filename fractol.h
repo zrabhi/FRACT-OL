@@ -34,6 +34,7 @@ typedef struct {
 	// int		bits_per_pixel;
 	// int		line_length;
 	// int		endian;
+	double comp;
 	void *mlx;
 	void *mlx_wind;
 	int a;
@@ -61,14 +62,16 @@ typedef struct {
 	double moveY;
 } t_fractol;
 // functions-----------------------.
+void ft_mlx(t_fractol *data, t_data *img);
+void    mandelbrote(void);
 void	ft_putstr_fd(char *s);
 void	ft_error(int ac, char **av);
-void   ft_my_put_pixel(t_data *data, int x, int y, int color);
-int	ft_strcmp(const char *s1, const char *s2);
-int ft_map(t_fractol *data);
-void   ft_mandelbrot(void);
-void  ft_calculate(t_fractol *data);
+void   	ft_my_put_pixel(t_data *data, int x, int y, int color);
+int		ft_strcmp(const char *s1, const char *s2);
+void 	ft_map(t_fractol *data);
+void   	ft_mandelbrot(void);
+double  ft_calculate(t_fractol *data);
 void    ft_julia(t_fractol *data);
-void    ft_draw(t_fractol *data);
+void    ft_draw(void);
 
 #endif
