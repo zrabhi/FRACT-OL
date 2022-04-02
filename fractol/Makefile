@@ -7,7 +7,7 @@ BLUE =\033[0;34m
 
 
 
-SRC =  main.c mandelbrot.c ft_my_put_pixel.c ft_strncmp.c ft_putstr_fd.c  julia.c ft_calculate.c ft_map.c ft_draw.c ft_window.c
+SRC =  main.c mandelbrot.c ft_my_put_pixel.c ft_strncmp.c ft_putstr_fd.c  julia.c ft_calculate.c ft_map.c ft_draw.c ft_window.c ft_errror.c
 OBJ = $(SRC:.c=.o)
 MAIN = main.c
 printf = ft_printf
@@ -43,9 +43,9 @@ $(NAME) : $(OBJ)
 	@echo " 		$(GRAY)To use this program, simply start the fractol file and put the name of the fractol you want to see!$(NONE)\n"
 	@echo " 		$(GRAY)How to use:$(NONE)\n"
 	@sleep 0.8
-	@echo " 			$(RED)> ./fractol mandelbrot$(NONE)"
-	@echo " 			$(RED)> ./fractol julia$(NONE)"
-	@echo " 			$(RED)> ./fractol burningship$(NONE)\n"
+	@echo " 			$(RED)> for mandelbrote : ./fractol -m$(NONE)"
+	@echo " 			$(RED)> for julia       : ./fractol -j$(NONE)"
+#@echo " 			$(RED)>  f./fractol burningship$(NONE)\n"
 	 
 clean:
 	@rm -f $(OBJ)

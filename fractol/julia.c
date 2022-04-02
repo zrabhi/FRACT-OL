@@ -4,9 +4,10 @@
 
 static void    iteration_calc(t_fractol *data)
 {
+    data->max_iteration = 300;
    data->iteration=0;
-          while( (data->iteration < data->max_iteration))
-      { 
+    while( (data->iteration < data->max_iteration))
+    { 
             data->oldRE = data->newRE;
             data->oldIM =data->newIM;
             data->newRE = data->oldRE * data->oldRE - data->oldIM * data->oldIM + data->c_r;
