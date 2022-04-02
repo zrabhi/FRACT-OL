@@ -1,4 +1,4 @@
-//  #include "ft_putstr_fd/ft_putstr_fd.h"
+
  #include "fractol.h"
 
 int main(int ac, char **av)
