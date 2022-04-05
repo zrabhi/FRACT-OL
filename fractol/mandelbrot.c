@@ -6,7 +6,6 @@
 
  void    iteration_calc(t_fractol *data)
 {
-    data->max_iteration = 300;
     data->iteration=0;
     while( (data->iteration < data->max_iteration))
         { 
@@ -18,10 +17,19 @@
        if(((data->newRE * data->newRE) + (data->newIM * data->newIM) > 4)) break;
         }
 }
+// void values(t_fractol *data)
+// {
+//     data->x_scale = (4.0 / WIDTH);
+// 	data->y_scale = (4.0 / HIEGHT);
+// 	data->x_center = 2.0;
+// 	data->y_center = 2.0;
+
+// }
 void  mandelbrote(t_fractol *data)
 {
-    data->c_r = (data->x -WIDTH / 2.0) * (4.0 / WIDTH);
-    data->c_i = (data->y - HIEGHT / 2.0) * (4.0 / HIEGHT);
+    // values(data);
+    data->c_r = (data->x * data->x_scale) - data->x_center;
+    data->c_i = (data->y * data->y_scale) - data->y_center;
     data->newRE = data->newIM = data->oldRE = data->oldIM = 0;
     iteration_calc(data);
 }

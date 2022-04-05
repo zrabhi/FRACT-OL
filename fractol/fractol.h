@@ -19,7 +19,7 @@
 #define ALICEBLUE 0x00F0F8FF
 #define FIREBRICK 0XB22222
 #define HOTPINCK 0XFF69B4
-
+#define Black 0x000000
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -34,6 +34,10 @@ typedef struct {
 	double comp;
 	void *mlx;
 	void *mlx_wind;
+	double x_scale;
+	double y_scale;
+	double x_center;
+	double y_center;
 	int a;
 	int b;
 	int x;
@@ -49,6 +53,7 @@ typedef struct {
 	double newIM;
 	double oldRE;
 	double oldIM;
+	int value2;
 	float z_r;
 	float z_i;
 	float z;
@@ -61,6 +66,7 @@ typedef struct {
 } 			t_fractol;
 // functions-----------------------.
 // void ft_mlx(t_fractol **data);
+// void values(t_fractol *data);
 void	ft_mlx(t_fractol *data);
 void    mandelbrote(t_fractol *data);
 void	ft_putstr_fd(char *s);
@@ -74,5 +80,9 @@ double  ft_calculate(t_fractol *data);
 void    julia(t_fractol *data);
 void	mandelbrote(t_fractol *data);
 void    ft_draw(t_fractol *data, void (*f)(t_fractol *data));
+void    julia_data(t_fractol *data);
+int	mouse_move(t_fractol *data);
+int	mouse_press(int key,t_fractol *data);
+int	key_press(int keycode, t_fractol *data);
 
 #endif

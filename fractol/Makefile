@@ -7,7 +7,7 @@ BLUE =\033[0;34m
 
 
 
-SRC =  main.c mandelbrot.c ft_my_put_pixel.c ft_strncmp.c ft_putstr_fd.c  julia.c ft_calculate.c ft_map.c ft_draw.c ft_window.c ft_errror.c
+SRC =  main.c mandelbrot.c ft_my_put_pixel.c ft_strncmp.c ft_putstr_fd.c  julia.c ft_calculate.c ft_draw.c  ft_errror.c
 OBJ = $(SRC:.c=.o)
 MAIN = main.c
 printf = ft_printf
@@ -50,5 +50,5 @@ $(NAME) : $(OBJ)
 clean:
 	@rm -f $(OBJ)
 fclean:
-	@rm -f $(OBJ) $(NAME)
+	@rm -f $(OBJ) $(NAME) $(ECX)
 re: fclean all 
