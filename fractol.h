@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zrabhi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/09 10:30:21 by zrabhi            #+#    #+#             */
+/*   Updated: 2022/04/09 10:30:32 by zrabhi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
@@ -6,18 +18,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-// win-params------------------------------------------
-#define WIDTH 1920
-#define HIEGHT 1080
-// colors-defined here------------------------------------------
-#define INDIANRED 0xCD5C5C
-#define RED 0xFF0000
-#define WHITE 0xFFFFFF
-#define GRAY 0x808080
-#define ALICEBLUE 0x00F0F8FF
-#define FIREBRICK 0XB22222
-#define HOTPINCK 0XFF69B4
-#define Black 0x0000000
+#define WIDTH 700
+#define HIEGHT 700
+
+#define Black 0x000000
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -26,9 +30,7 @@ typedef struct	s_data {
 	int		endian;
 }		t_data;
  
-// typedef void  (*str) (t_fractol *data);
 typedef struct {
-	// void  (*str) (t_fractol *data);
 	void *mlx;
 	void *mlx_wind;
 	int x;
@@ -54,16 +56,16 @@ typedef struct {
 	int value;
 	double c_r;
 	double c_i;
+	int color_code;
 	t_data img;
 } 			t_fractol;
 // functions-----------------------.
-void	ft_mlx(t_fractol *data);
 void    mandelbrote(t_fractol *data);
 void    julia(t_fractol *data);
 void    julia_data(t_fractol *data);
 void	burningship(t_fractol *data);
-void	ft_putstr_fd(char *s);
-int		ft_error(char **av,t_fractol *data);
+void	ft_putstr(char *s);
+int		ft_check(char **av,t_fractol *data);
 void   	ft_my_put_pixel(t_fractol *data, int x, int y, int color);
 int		ft_strcmp(const char *s1, const char *s2);
 void	iteration_clc(t_fractol *data);
@@ -75,6 +77,7 @@ int		closed(t_fractol *data);
 int		hundle_no_event(t_fractol *data);
 void	ft_init(t_fractol *data);
 void	reset_fract(t_fractol *data);
+void	ft_get_coler(t_fractol *data);
 void	red(void);
 void	purple(void);
 

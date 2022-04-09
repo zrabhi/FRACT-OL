@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: zrabhi <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/04/09 10:28:47 by zrabhi            #+#    #+#              #
+#    Updated: 2022/04/09 10:29:00 by zrabhi           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 GREEN=\033[32m
 YELLOW=\033[33m
 GRAY=\033[2;37m
@@ -7,14 +19,14 @@ BLUE =\033[0;34m
 
 
 
-SRC =   events.c main.c mandelbrot.c burning-ship.c ft_my_put_pixel.c ft_strcmp.c ft_putstr_fd.c  julia.c  ft_draw.c  ft_errror.c
+SRC =   events.c main.c mandelbrot.c burning-ship.c ft_my_put_pixel.c ft_utils.c  julia.c  ft_draw.c  ft_check.c
 OBJ = $(SRC:.c=.o)
 MAIN = main.c
 printf = ft_printf
 printfheader = &(ft_printf)
 CC = gcc
-mlx_flags =  -lmlx -framework OpenGL -framework AppKit
-GCC_FLAGS = -Wall -Wextra -Werror
+mlx_flags =  -lmlx -framework OpenGL -framework AppKit -Ofast
+GCC_FLAGS =  -Wall -Wextra -Werror 
 HEADER = fractol.h 
 AR = ar r
 NAME = fractol.a

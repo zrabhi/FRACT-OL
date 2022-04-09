@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zrabhi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/09 10:29:53 by zrabhi            #+#    #+#             */
+/*   Updated: 2022/04/09 10:30:08 by zrabhi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 int	closed(t_fractol *data)
@@ -39,8 +51,8 @@ int	mouse_press(int key, int x, int y,  t_fractol *data)
 		data->y_scale /= 0.5;
 		data->max_iteration -= 20;
 	}
-	else if (key == 1)
-	 	data->value2 += 1;
+	// else if (key == 1)
+	//  	data->value2 += 1;
 	return (0);
 }
 
@@ -75,24 +87,29 @@ int	key_press(int keycode, t_fractol *data)
 		data->max_iteration -= 50;
 	else if (keycode == 15)
 		reset_fract(data);
+	else if(keycode == 35)
+		ft_get_coler(data);
 	return (0);
 }
+
 int	mouse_move(int x, int y, t_fractol *data)
 {
-	if (data->value2 % 2)
-	{
+	// if (data->value2 % 2)
+	// {
 		if (x >= 0 && x <= WIDTH && y >= 0 && y <= HIEGHT)
 		{
 			data->julia_var_re = (data->x_scale * x) - data->x_center;
 			data->julia_var_im  = (data->x_scale * y) - data->y_center;
 		}
-		else
-			return (0);
-	}
-	else if (!data->value2 % 2)
-	{
+		else {
 		data->julia_var_re =  data->julia_var_re;
-		data->julia_var_im  = data->julia_var_im ;
-	}
+		data->julia_var_im  = data->julia_var_im;
+		}
+		// else
+		// 	return (0);
+	// }
+	// else if (!data->value2 % 2)
+	// {
+	// }
 	return (0);
 }

@@ -1,11 +1,23 @@
-#include "fractol.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   julia.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zrabhi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/09 10:36:57 by zrabhi            #+#    #+#             */
+/*   Updated: 2022/04/09 10:37:40 by zrabhi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "fractol.h"
 
 void    julia_data(t_fractol *data)
 {
     data->julia_var_re= 0.285;
     data->julia_var_im = 0.01;
 }
+
 static void    iteration_calc(t_fractol *data)
 {
     data->iteration = 0;
@@ -16,7 +28,8 @@ static void    iteration_calc(t_fractol *data)
             data->newRE = data->oldRE * data->oldRE - data->oldIM * data->oldIM + data->julia_var_re;
             data->newIM = 2 * data->oldRE * data->oldIM + data->julia_var_im;
             data->iteration++;
-       if(((data->newRE * data->newRE) + (data->newIM * data->newIM) > 4)) break;
+       if (((data->newRE * data->newRE) + (data->newIM * data->newIM) > 4))
+		   break ;
       }
 }
 
