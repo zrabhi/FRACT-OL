@@ -7,7 +7,7 @@ BLUE =\033[0;34m
 
 
 
-SRC =  ft_mandelbrot.c ft_my_put_pixel.c ft_strncmp.c ft_putstr_fd.c ft_errror.c ft_julia.c ft_calculate.c ft_draw.c ft_map.c
+SRC =   events.c main.c mandelbrot.c burning-ship.c ft_my_put_pixel.c ft_strcmp.c ft_putstr_fd.c  julia.c  ft_draw.c  ft_errror.c
 OBJ = $(SRC:.c=.o)
 MAIN = main.c
 printf = ft_printf
@@ -18,16 +18,16 @@ GCC_FLAGS = -Wall -Wextra -Werror
 HEADER = fractol.h 
 AR = ar r
 NAME = fractol.a
-Header = fractol
+ECX = fractol
 
-%.o: %.c 
-	@$(CC) $(GCC_FLAGS)  -c $<  
 all: $(NAME)
 
 # $(NAME): $(OBJ) 
 # $(AR) $(NAME) $(OBJ)
+%.o: %.c 
+	@$(CC) $(GCC_FLAGS)   -c $<  
 $(NAME) : $(OBJ)
-	@$(AR) $(NAME) $(OBJ)  
+	@$(CC) $(GCC_FLAGS) $(mlx_flags) -o $(ECX) $(OBJ)
 	@echo ""
 	@echo " $(BLUE)Wᴇʟᴄᴏᴍᴇ ᴛᴏ ᴍʏ$(NONE)\n"
 	@sleep 0.8
@@ -42,13 +42,12 @@ $(NAME) : $(OBJ)
 	@echo ""
 	@echo " 		$(GRAY)To use this program, simply start the fractol file and put the name of the fractol you want to see!$(NONE)\n"
 	@echo " 		$(GRAY)How to use:$(NONE)\n"
-	@sleep 0.8
-	@echo " 			$(RED)> ./fractol mandelbrot$(NONE)"
-	@echo " 			$(RED)> ./fractol julia$(NONE)"
-	@echo " 			$(RED)> ./fractol burningship$(NONE)\n"
-	 
+	@echo " 		$(RED) > for mandelbrote : ./fractol -m$(NONE)"
+	@echo " 		$(RED) > for julia       : ./fractol -j$(NONE)"
+	@echo "		$(RED) > for burningship : ./fractol -b$(NONE)\n"	 
+
 clean:
 	@rm -f $(OBJ)
 fclean:
-	@rm -f $(OBJ) $(NAME)
+	@rm -f $(OBJ) $(NAME) $(ECX)
 re: fclean all 

@@ -1,8 +1,6 @@
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
-
-#include "ft_printf/ft_printf.h"
 #include <mlx.h>
 #include <math.h>
 #include <unistd.h>
@@ -19,7 +17,7 @@
 #define ALICEBLUE 0x00F0F8FF
 #define FIREBRICK 0XB22222
 #define HOTPINCK 0XFF69B4
-
+#define Black 0x0000000
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -27,20 +25,16 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }		t_data;
-
+ 
+// typedef void  (*str) (t_fractol *data);
 typedef struct {
-	// void	*img;
-	// char	*addr;
-	// int		bits_per_pixel;
-	// int		line_length;
-	// int		endian;
-	double comp;
+	// void  (*str) (t_fractol *data);
 	void *mlx;
 	void *mlx_wind;
-	int a;
-	int b;
 	int x;
 	int y;
+	double julia_var_re;
+	double julia_var_im;
 	int iteration;
 	int max_iteration;
 	int color;
@@ -48,30 +42,40 @@ typedef struct {
 	int in_max;
 	int	out_max;
 	int out_min;
+	double x_scale;
+	double y_scale;
+	double x_center;
+	double y_center;
 	double newRE;
 	double newIM;
 	double oldRE;
 	double oldIM;
-	float z_r;
-	float z_i;
-	float z;
+	int value2;
+	int value;
 	double c_r;
 	double c_i;
-	double zoom;
-	double moveX;
-	double moveY;
-} t_fractol;
+	t_data img;
+} 			t_fractol;
 // functions-----------------------.
-void ft_mlx(t_fractol *data, t_data *img);
-void    mandelbrote(void);
+void	ft_mlx(t_fractol *data);
+void    mandelbrote(t_fractol *data);
+void    julia(t_fractol *data);
+void    julia_data(t_fractol *data);
+void	burningship(t_fractol *data);
 void	ft_putstr_fd(char *s);
-void	ft_error(int ac, char **av);
-void   	ft_my_put_pixel(t_data *data, int x, int y, int color);
+int		ft_error(char **av,t_fractol *data);
+void   	ft_my_put_pixel(t_fractol *data, int x, int y, int color);
 int		ft_strcmp(const char *s1, const char *s2);
-void 	ft_map(t_fractol *data);
-void   	ft_mandelbrot(void);
-double  ft_calculate(t_fractol *data);
-void    ft_julia(t_fractol *data);
-void    ft_draw(void);
+void	iteration_clc(t_fractol *data);
+void    ft_draw(t_fractol *data, void (*f)(t_fractol *data));
+int		mouse_move(int x, int y, t_fractol *data);
+int		mouse_press(int key, int x, int y, t_fractol *data);
+int		key_press(int keycode, t_fractol *data);
+int		closed(t_fractol *data);
+int		hundle_no_event(t_fractol *data);
+void	ft_init(t_fractol *data);
+void	reset_fract(t_fractol *data);
+void	red(void);
+void	purple(void);
 
 #endif
