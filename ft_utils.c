@@ -6,7 +6,7 @@
 /*   By: zrabhi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 19:02:09 by zrabhi            #+#    #+#             */
-/*   Updated: 2022/04/09 10:36:48 by zrabhi           ###   ########.fr       */
+/*   Updated: 2022/04/10 02:00:35 by zrabhi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,26 @@ void	ft_get_coler(t_fractol *data)
 		data->color = 0xFFFCA7;
 	else if (data->color_code == 7)
 		data->color = 0xf1f1e1;
-	if (data->color_code == 8)
+	else if (data->color_code == 8)
+		data->color = 0xF0F8FF;
+	else if (data->color_code == 9)
 		data->color_code = 0;
 }
 
 void	ft_init(t_fractol *data)
 {
 	data->mlx = mlx_init();
-    data->mlx_wind = mlx_new_window(data->mlx, WIDTH, HIEGHT, "Fractol");
-    data->img.img = mlx_new_image(data->mlx, WIDTH, HIEGHT);
-    data->img.addr = mlx_get_data_addr(data->img.img, &data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
+	data->mlx_wind = mlx_new_window(data->mlx, WIDTH, HIEGHT, "Fractol");
+	data->img.img = mlx_new_image(data->mlx, WIDTH, HIEGHT);
+	data->img.addr = mlx_get_data_addr(data->img.img, \
+	&data->img.bits_per_pixel, &data->img.line_length, &data->img.endian);
 	data->x_scale = (4.0 / WIDTH);
 	data->y_scale = (4.0 / HIEGHT);
 	data->x_center = 2.0;
 	data->y_center = 2.0;
 	data->max_iteration = 50;
-    data->color = 0xf4f4f5;
-    data->color_code = 0;
+	data->color = 0xf4f4f5;
+	data->color_code = 0;
 }
 
 void	ft_putstr(char *s)
