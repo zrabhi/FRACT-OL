@@ -14,10 +14,12 @@ Zoom and unzoom.
 Different colors patterns.
 
 ## How to use ?
-
+for Mandelbrot use : -m;
+for julia use      : -j;
+for BurningShip    : -b;
 ```
 $> make
-$> ./fractol mandelbrot
-$> ./fractol julia
-$> ./fractol burningship
+$> ./fractol -m
+$> ./fractol -j
+$> ./fractol -b
 ```
