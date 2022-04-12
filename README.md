@@ -16,9 +16,9 @@ Different colors patterns.
 ## How to use ?
 for Mandelbrot use : -m
 
-for julia use      : -j.
+for julia use      : -j
 
-for BurningShip    : -b.
+for BurningShip    : -b
 ```
 $> make
 $> ./fractol -m
