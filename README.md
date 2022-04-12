@@ -15,7 +15,9 @@ Different colors patterns.
 
 ## How to use ?
 for Mandelbrot use : -m;
+
 for julia use      : -j;
+
 for BurningShip    : -b;
 ```
 $> make
